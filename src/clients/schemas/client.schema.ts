@@ -1,8 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document } from 'mongoose';
+import * as mongoose from 'mongoose';
 import { Addresses } from '../../addresses/schemas/address.schema';
 
-export type ClientsDocument = Clients & Document;
+export type ClientsDocument = Clients & mongoose.Document;
 
 @Schema({ timestamps: true })
 export class Clients {
