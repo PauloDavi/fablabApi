@@ -8,6 +8,7 @@ import {
 } from '@nestjs/swagger';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -33,6 +34,10 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
-  await app.listen(3000);
+  const configService = app.get(ConfigService);
+
+  const port = configService.get('port');
+
+  await app.listen(port);
 }
 bootstrap();
