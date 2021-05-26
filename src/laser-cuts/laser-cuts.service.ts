@@ -1,9 +1,9 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateLaserCutDto } from './dto/create-laser-cut.dto';
-import { UpdateLaserCutDto } from './dto/update-laser-cut.dto';
-import { laserCuts, laserCutsDocument } from './schemas/laser-cuts.schema';
+import { CreateLaserCutDto } from './dtos/create-laser-cut.dto';
+import { UpdateLaserCutDto } from './dtos/update-laser-cut.dto';
+import { LaserCuts, LaserCutsDocument } from './schemas/laser-cuts.schema';
 
 const setupsTable = {
   firstSetup: 6,
@@ -19,12 +19,12 @@ const costTable = {
 @Injectable()
 export class LaserCutsService {
   constructor(
-    @InjectModel(laserCuts.name)
-    private readonly laserCutsModel: Model<laserCutsDocument>,
+    @InjectModel(LaserCuts.name)
+    private readonly LaserCutsModel: Model<LaserCutsDocument>,
   ) {}
 
   async findOne(id: string) {
-    const laserCut = await this.laserCutsModel.findById(id);
+    const laserCut = await this.LaserCutsModel.findById(id);
 
     if (!laserCut) {
       throw new HttpException('LaserCut not exist', 400);
@@ -34,8 +34,8 @@ export class LaserCutsService {
   }
 
   async findAll() {
-    const laserCuts = await this.laserCutsModel.find();
-    return laserCuts;
+    const LaserCuts = await this.LaserCutsModel.find();
+    return LaserCuts;
   }
 
   async create({
@@ -52,7 +52,7 @@ export class LaserCutsService {
     const coastSetup =
       quantity > 1 ? setupsTable.firstSetup : setupsTable.nextSetups;
 
-    const laserCut = await this.laserCutsModel.create({
+    const laserCut = await this.LaserCutsModel.create({
       material,
       coastSetup,
       clientType,
@@ -69,7 +69,7 @@ export class LaserCutsService {
     id: string,
     { clientType, material, quantity, time, title }: UpdateLaserCutDto,
   ) {
-    const laserCut = await this.laserCutsModel.findById(id);
+    const laserCut = await this.LaserCutsModel.findById(id);
 
     if (!laserCut) {
       throw new HttpException('LaserCut not exist', 400);
@@ -84,7 +84,7 @@ export class LaserCutsService {
         ? setupsTable.firstSetup
         : setupsTable.nextSetups;
 
-    const editedLaserCut = await this.laserCutsModel.findByIdAndUpdate(
+    const editedLaserCut = await this.LaserCutsModel.findByIdAndUpdate(
       id,
       {
         time,
@@ -103,12 +103,12 @@ export class LaserCutsService {
   }
 
   async remove(id: string) {
-    const laserCut = await this.laserCutsModel.findById(id);
+    const laserCut = await this.LaserCutsModel.findById(id);
 
     if (!laserCut) {
       throw new HttpException('LaserCut not exist', 400);
     }
 
-    await this.laserCutsModel.findByIdAndRemove(id);
+    await this.LaserCutsModel.findByIdAndRemove(id);
   }
 }

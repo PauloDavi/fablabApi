@@ -25,10 +25,10 @@ export class CreateLaserCutDto {
   @IsNumber({ maxDecimalPlaces: 0 })
   time: number;
 
-  @ApiProperty({ type: Number })
+  @ApiProperty({ type: Number, default: 1 })
   @IsNotEmpty()
   @IsPositive()
-  @IsNumber({ maxDecimalPlaces: 1 })
+  @IsNumber({ maxDecimalPlaces: 0 })
   quantity: number;
 
   @ApiProperty({ enum: ['academic', 'personal', 'external'] })

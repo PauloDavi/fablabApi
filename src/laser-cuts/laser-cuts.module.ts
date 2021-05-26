@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { LaserCutsService } from './laser-cuts.service';
 import { LaserCutsController } from './laser-cuts.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { laserCuts, laserCutsSchema } from './schemas/laser-cuts.schema';
+import { LaserCuts, LaserCutsSchema } from './schemas/laser-cuts.schema';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: laserCuts.name, schema: laserCutsSchema },
+      { name: LaserCuts.name, schema: LaserCutsSchema },
     ]),
   ],
   controllers: [LaserCutsController],

@@ -25,4 +25,10 @@ export class LaserCutDto {
 
   @ApiProperty()
   material: string;
+
+  @ApiProperty()
+  createdAt: Date;
+
+  @ApiProperty()
+  updatedAt: Date;
 }

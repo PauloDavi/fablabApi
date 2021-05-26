@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type laserCutsDocument = laserCuts & Document;
+export type LaserCutsDocument = LaserCuts & Document;
 
 @Schema({ timestamps: true })
-export class laserCuts {
+export class LaserCuts {
   @Prop({ required: true })
   title: string;
 
@@ -27,4 +27,4 @@ export class laserCuts {
   material: string;
 }
 
-export const laserCutsSchema = SchemaFactory.createForClass(laserCuts);
+export const LaserCutsSchema = SchemaFactory.createForClass(LaserCuts);

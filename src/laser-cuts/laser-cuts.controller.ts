@@ -18,9 +18,9 @@ import {
   ApiNoContentResponse,
 } from '@nestjs/swagger';
 import { LaserCutsService } from './laser-cuts.service';
-import { CreateLaserCutDto } from './dto/create-laser-cut.dto';
-import { UpdateLaserCutDto } from './dto/update-laser-cut.dto';
-import { LaserCutDto } from './dto/laser-cut.dto';
+import { CreateLaserCutDto } from './dtos/create-laser-cut.dto';
+import { UpdateLaserCutDto } from './dtos/update-laser-cut.dto';
+import { LaserCutDto } from './dtos/laser-cut.dto';
 
 @ApiBearerAuth()
 @ApiTags('laser-cuts')
@@ -56,7 +56,7 @@ export class LaserCutsController {
 
   @Patch(':id')
   @ApiOkResponse({
-    description: 'The laser cur has been successfully updated.',
+    description: 'The laser cut has been successfully updated.',
     type: LaserCutDto,
   })
   @ApiForbiddenResponse({ description: 'Forbidden.' })

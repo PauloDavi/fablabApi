@@ -11,6 +11,8 @@ import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { LaserCutsModule } from './laser-cuts/laser-cuts.module';
 import { config } from './config';
 import { DatabaseConfig } from './database.config';
+import { FilamentsModule } from './filaments/filaments.module';
+import { PrintersModule } from './printers/printers.module';
 
 @Module({
   imports: [
@@ -29,6 +31,8 @@ import { DatabaseConfig } from './database.config';
     UsersModule,
     AuthModule,
     LaserCutsModule,
+    FilamentsModule,
+    PrintersModule,
   ],
   controllers: [AppController],
   providers: [
