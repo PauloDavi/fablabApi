@@ -1,0 +1,39 @@
+@baseUrl = http://localhost:3000
+@contentType = application/json
+@baseEndPoint = user
+@authToken = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdGUiLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwic3ViIjoiNjBhZGIzNzYwZjQ2NTIyNjZiNDkyYWJlIiwiaWF0IjoxNjIyMDA0OTI0LCJleHAiOjE2MjQ1OTY5MjR9.q5nQgZ2z7mXcxvu1tjRLmBp4dzdYkfmlVRJKHvNjxas
+
+### Get one user
+GET {{baseUrl}}/{{baseEndPoint}}/60ada72a283496201b4d1163
+Authorization: {{authToken}}
+
+### Get all users
+GET {{baseUrl}}/{{baseEndPoint}}
+  ?page=1
+  &quantity=5
+Authorization: {{authToken}}
+
+### Create a user
+POST {{baseUrl}}/{{baseEndPoint}}
+Content-Type: {{contentType}}
+Authorization: {{authToken}}
+
+{
+  "name": "Teste",
+  "email": "test@gmail.com",
+  "password": "123456"
+}
+
+### Edit a user
+PATCH  {{baseUrl}}/{{baseEndPoint}}
+Content-Type: {{contentType}}
+Authorization: {{authToken}}
+
+{
+  "id": "1",
+  "": ""
+}
+
+### Delete one user
+DELETE {{baseUrl}}/{{baseEndPoint}}/60ada72a283496201b4d1163
+Authorization: {{authToken}}
