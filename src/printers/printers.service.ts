@@ -27,8 +27,8 @@ export class PrintersService {
     return printers;
   }
 
-  async create(CreatePrinterDto: CreatePrinterDto) {
-    const printer = await this.printersModel.create(CreatePrinterDto);
+  async create(createPrinterDto: CreatePrinterDto) {
+    const printer = await this.printersModel.create(createPrinterDto);
 
     return printer;
   }

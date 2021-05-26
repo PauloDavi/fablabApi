@@ -13,6 +13,7 @@ import { config } from './config';
 import { DatabaseConfig } from './database.config';
 import { FilamentsModule } from './filaments/filaments.module';
 import { PrintersModule } from './printers/printers.module';
+import { AddressesModule } from './addresses/addresses.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { PrintersModule } from './printers/printers.module';
     LaserCutsModule,
     FilamentsModule,
     PrintersModule,
+    AddressesModule,
   ],
   controllers: [AppController],
   providers: [
