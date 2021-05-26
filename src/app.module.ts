@@ -14,6 +14,7 @@ import { DatabaseConfig } from './database.config';
 import { FilamentsModule } from './filaments/filaments.module';
 import { PrintersModule } from './printers/printers.module';
 import { AddressesModule } from './addresses/addresses.module';
+import { ClientsModule } from './clients/clients.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { AddressesModule } from './addresses/addresses.module';
     FilamentsModule,
     PrintersModule,
     AddressesModule,
+    ClientsModule,
   ],
   controllers: [AppController],
   providers: [
