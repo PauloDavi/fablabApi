@@ -15,7 +15,7 @@ export class UsersService {
   async findOne(id: string) {
     const user = await this.usersModel.findById(id);
 
-    if (!!user) {
+    if (!user) {
       throw new HttpException('User not exist', 400);
     }
 
@@ -31,7 +31,7 @@ export class UsersService {
   async findByEmail(email: string) {
     const user = await this.usersModel.findOne({ email });
 
-    if (!!user) {
+    if (!user) {
       throw new HttpException('User not exist', 400);
     }
 
@@ -63,7 +63,7 @@ export class UsersService {
       new: true,
     });
 
-    if (!!user) {
+    if (!user) {
       throw new HttpException('User not exist', 400);
     }
 
@@ -73,7 +73,7 @@ export class UsersService {
   async remove(id: string) {
     const user = await this.usersModel.findById(id);
 
-    if (!!user) {
+    if (!user) {
       throw new HttpException('User not exist', 400);
     }
 
